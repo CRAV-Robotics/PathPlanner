@@ -102,16 +102,49 @@ class RRTGraph():
 
         return obs
 
-    def addNode(self):
-        pass
-    def removeNode(self):
-        pass
+    def addNode(self,n,x,y):
+        self.x.insert(n,x)
+        self.y.insert(n,y)
 
-    def addEdge(self):
-        pass
+    def removeNode(self,n):
+        self.x.pop(n)
+        self.y.pop(n)
+
+    def addEdge(self,parent,child):
+        self.parent.insert(child,parent)
+
+    def addEdge(self,n):
+        self.parent.pop(n)
 
     def numberOfNodes(self):
-        pass
+        return(len(self.x))
+    
+    def distance(self,n1,n2):
+        (x1,y1) = (self.x[n1],self.y[n1]) 
+        (x2,y2) = (self.x[n2],self.y[n2]) 
+        px = (float(x1)-float(x2))**2
+        py = (float(y1)-float(y2))**2
+        return ((px+py)**0.5)
+
+    def sampleEnv(self):
+        x = int(random.uniform(0,self.MapWidht))
+        y = int(random.uniform(0,self.MapHeight))
+        return (x,y)
+
+    def isFree(self):
+        n = self.numberOfNodes()-1
+        (x,y) = (self.x[n],self.y[n])
+        obs = self.obstacles.copy()
+
+        while len(obs)>0 :
+            rectangle = obs.pop(0)
+            if rectangle.collidepoint(x,y):
+                self.removeNode(n)
+                return False
+
+        return True
+
+
 
 
 

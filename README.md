@@ -1,2 +1,2 @@
 # PathPlanner
-PathPlaner is a package for generatring path to goal in order to plan a pth for a mobile robot
+PathPlaner is a package for generating path to goal in order to plan a path for a mobile robot

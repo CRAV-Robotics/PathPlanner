@@ -1,0 +1,18 @@
+########################################################################
+#                              PURPOSE                                 #
+# This planner is useful when we want to get a path in restricted areas#
+# or in case of colision and recovery behavior                         #
+########################################################################
+
+
+# Explication HOW the path will be generaed :
+# 1 --> Get the robot position and the goal position 
+# 2 --> Call a service to generate a path 
+# 3 --> [SERVER Response] Client get an array of (x,y) positions for the path
+# 4 --> Triggere the controller to make the path 
+
+
+
+########################################################################
+#                                 END                                  #
+########################################################################
